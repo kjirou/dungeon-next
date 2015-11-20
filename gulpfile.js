@@ -152,6 +152,8 @@ gulp.task('build:images', function() {
   ;
 });
 
+gulp.task('build:assets', ['build:images', 'build:css']);
+
 gulp.task('watch:assets', function() {
 
   // css
@@ -192,4 +194,4 @@ gulp.task('serve', function() {
 });
 
 gulp.task('build', ['build:images', 'build:css', 'build:js']);
-gulp.task('develop', ['watch:assets', 'watch:js', 'serve']);
+gulp.task('develop', ['build:assets', 'watch:assets', 'watch:js', 'serve']);

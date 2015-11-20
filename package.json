@@ -52,6 +52,12 @@
     "url": "git+https://github.com/kjirou/hakusura.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "b": "npm run build",
+    "build": "gulp build",
+    "d": "npm run develop",
+    "develop": "gulp develop",
+    "s": "npm run serve",
+    "serve": "gulp serve",
+    "test": "mocha"
   }
 }
