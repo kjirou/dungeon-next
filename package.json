@@ -1,0 +1,52 @@
+{
+  "name": "hakusura",
+  "version": "0.0.0",
+  "author": "kjirou",
+  "bugs": {
+    "url": "https://github.com/kjirou/hakusura/issues"
+  },
+  "dependencies": {
+    "react": "0.14.2",
+    "react-dom": "0.14.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.1.0",
+    "babel": "5.8.29",
+    "babelify": "6.4.0",
+    "browser-sync": "2.9.12",
+    "browserify": "12.0.1",
+    "fixpack": "2.2.0",
+    "gulp": "3.9.0",
+    "gulp-postcss": "6.0.1",
+    "gulp-rename": "1.2.2",
+    "http-server": "0.8.5",
+    "licensify": "1.4.0",
+    "node-notifier": "4.3.1",
+    "postcss-custom-properties": "5.0.0",
+    "postcss-nested": "1.0.0",
+    "postcss-sassy-mixins": "1.0.0",
+    "postcss-scss": "0.1.3",
+    "vinyl-source-stream": "1.1.0",
+    "watchify": "3.6.0"
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=2"
+  },
+  "homepage": "https://github.com/kjirou/hakusura#readme",
+  "keywords": [
+    "game",
+    "hack-and-slash",
+    "spa"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjirou/hakusura.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
