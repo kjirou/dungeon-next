@@ -11,6 +11,7 @@ var postcssCustomProperties = require('postcss-custom-properties');
 var postcssNested = require('postcss-nested');
 var postcssSassyMixins = require('postcss-sassy-mixins');
 var postcssScss = require('postcss-scss');
+var runSequence = require('run-sequence');
 var vinylSourceStream  = require('vinyl-source-stream');
 var watchify = require('watchify');
 
@@ -152,7 +153,7 @@ gulp.task('build:images', function() {
   ;
 });
 
-gulp.task('build:assets', ['build:images', 'build:css']);
+gulp.task('build:assets', ['build:css', 'build:images']);
 
 gulp.task('watch:assets', function() {
 
@@ -193,5 +194,7 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('build', ['build:images', 'build:css', 'build:js']);
-gulp.task('develop', ['build:assets', 'watch:assets', 'watch:js', 'serve']);
+gulp.task('build', ['build:js', 'build:assets']);
+gulp.task('develop', function() {
+  runSequence('build', ['watch:js', 'watch:assets'], 'serve');
+});
