@@ -10,7 +10,6 @@ var path = require('path');
 var postcssCustomProperties = require('postcss-custom-properties');
 var postcssImport = require('postcss-import');
 var postcssNested = require('postcss-nested');
-var postcssSassyMixins = require('postcss-sassy-mixins');
 var postcssScss = require('postcss-scss');
 var runSequence = require('run-sequence');
 var vinylSourceStream  = require('vinyl-source-stream');
@@ -129,16 +128,16 @@ function createCssBundler(options) {
   var onError = options.onError || function onError(err) { throw err; };
 
   return gulp.src(CSS_INDEX_FILE_PATH)
-    .pipe(gulpPostcss([
-      postcssImport(),
-      postcssCustomProperties(),
-      // Output "Container#eachAtRule is deprecated. Use Container#walkAtRules instead." now
-      postcssSassyMixins(),
-      postcssNested(),
-      autoprefixer()
-    ], {
-      syntax: postcssScss
-    }))
+    .pipe(
+      gulpPostcss([
+        postcssImport(),
+        postcssCustomProperties(),
+        postcssNested(),
+        autoprefixer()
+      ], {
+        syntax: postcssScss
+      })
+    )
     .on('error', onError)
     .pipe(gulpRename('app.css'))
     .pipe(gulp.dest(PUBLIC_DIST_ROOT))

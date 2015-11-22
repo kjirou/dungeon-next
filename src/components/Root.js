@@ -6,7 +6,7 @@ import scenes from './scenes';
 export default class Root extends React.Component {
 
   render() {
-    const sceneId = 'WelcomeScene';
+    const sceneId = 'AdventureScene';
     const sceneProps = {
       key: sceneId,
     };
