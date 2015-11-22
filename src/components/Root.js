@@ -1,8 +1,21 @@
 import React from 'react';
 
+import scenes from './scenes';
+
 
 export default class Root extends React.Component {
+
   render() {
-    return <div className="component">This is the Root component.</div>;
+    const sceneId = 'WelcomeScene';
+    const sceneProps = {
+      key: sceneId,
+    };
+    const sceneElement = React.createElement(scenes[sceneId], sceneProps);
+
+    return (
+      <div className="screen">
+        { sceneElement }
+      </div>
+    );
   }
 }

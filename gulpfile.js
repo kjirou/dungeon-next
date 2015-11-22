@@ -8,6 +8,7 @@ var licensify = require('licensify');
 var notifier = require('node-notifier');
 var path = require('path');
 var postcssCustomProperties = require('postcss-custom-properties');
+var postcssImport = require('postcss-import');
 var postcssNested = require('postcss-nested');
 var postcssSassyMixins = require('postcss-sassy-mixins');
 var postcssScss = require('postcss-scss');
@@ -29,7 +30,7 @@ var STYLES_FILE_PATH = path.join(SRC_ROOT, '**/*.scss');
 
 
 function onErrorToWarn(err) {
-  console.error(err.stack);
+  console.error(err.stack || err);
   notifier.notify({
     message: err.message,
     title: 'Gulp Error'
@@ -129,6 +130,7 @@ function createCssBundler(options) {
 
   return gulp.src(CSS_INDEX_FILE_PATH)
     .pipe(gulpPostcss([
+      postcssImport(),
       postcssCustomProperties(),
       // Output "Container#eachAtRule is deprecated. Use Container#walkAtRules instead." now
       postcssSassyMixins(),
