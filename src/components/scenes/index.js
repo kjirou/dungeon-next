@@ -1,6 +1,6 @@
-import AdventureScene from './Adventure';
-import HomeScene from './Home';
-import WelcomeScene from './Welcome';
+import AdventureScene from './AdventureScene';
+import HomeScene from './HomeScene';
+import WelcomeScene from './WelcomeScene';
 
 
 const scenes = {
