@@ -1,5 +1,6 @@
 import React from 'react';
 
+import MiniCard from '../MiniCard';
 import sharedProps from './sharedProps';
 
 
@@ -33,10 +34,7 @@ export default class AdventureScene extends React.Component {
     return dungeonCardList
       .slice(0, 6)
       .map((dungeonCard, idx) => {
-        return React.DOM.li({
-          key: idx,
-          className: 'mini-dungeon-card',
-        });
+        return React.createElement(MiniCard, { key: 'mini-card-' + idx });
       })
     ;
   }

@@ -2,6 +2,8 @@ var autoprefixer = require('autoprefixer');
 var babelify = require('babelify');
 var browserify = require('browserify');
 var gulp = require('gulp');
+var gulpConcat = require('gulp-concat');
+var gulpImageDataURI = require('gulp-image-data-uri');
 var gulpRename = require('gulp-rename');
 var gulpPostcss = require('gulp-postcss');
 var licensify = require('licensify');
@@ -155,6 +157,21 @@ gulp.task('build:images', function() {
 });
 
 gulp.task('build:assets', ['build:css', 'build:images']);
+
+// Run after `image-divider` command
+gulp.task('build:materials:icons', function() {
+  return gulp.src(path.join(PUBLIC_DIST_ROOT, 'icons/**/*.png'))
+    .pipe(gulpImageDataURI({
+      template: {
+        file: path.join(ROOT, 'gulp-image-data-uri-template.css')
+      }
+    }))
+    .pipe(gulpConcat('icons.css'))
+    .pipe(gulp.dest(PUBLIC_DIST_ROOT))
+  ;
+});
+
+gulp.task('build:materials', ['build:materials:icons']);
 
 gulp.task('watch:assets', function() {
 

@@ -4,8 +4,10 @@
 :root {
   --app-width: 360px;
   --app-height: 600px;
-
-  --color-black: #000000;
+  --icon-width: 32px;
+  --icon-height: 32px;
+  --color-font: #ffffff;
+  --color-background: #000000;
 }
 
 
@@ -33,7 +35,8 @@ body.development {
     left: 0;
     width: var(--app-width);
     height: var(--app-height);
-    background-color: var(--color-black);
+    color: var(--color-font);
+    background-color: var(--color-background);
 
     .scene {
       position: absolute;
@@ -47,4 +50,29 @@ body.development {
 
 
 #js-app-container .adventure-scene {
+  .mini-dungeon-cards {
+    display: flex;
+
+    .mini-card {
+      width: 60px;
+      height: 90px;
+
+      .status {
+        height: 24px;
+      }
+      .icon-container {
+        margin-top: 4px;
+        height: var(--icon-height);
+        .icon {
+          width: var(--icon-width);
+          height: var(--icon-height);
+          margin: 0 auto;
+        }
+      }
+      .buffs {
+        margin-top: 4px;
+        height: 24px;
+      }
+    }
+  }
 }
