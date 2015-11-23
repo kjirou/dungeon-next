@@ -6,6 +6,10 @@
   --app-height: 600px;
   --icon-width: 32px;
   --icon-height: 32px;
+  --card-width: 150px;
+  --card-height: 240px;
+  --mini-card-width: 60px;
+  --mini-card-height: 96px;
   --color-font: #ffffff;
   --color-background: #000000;
 }
@@ -48,31 +52,54 @@ body.development {
   }
 }
 
+/*
+ * Card, MiniCard
+ */
+#js-app-container {
 
+  .card {
+    box-sizing: border-box;
+    width: var(--card-width);
+    height: var(--card-height);
+    border: 2px solid var(--color-font);
+    border-radius: 6px;
+  }
+
+  .mini-card {
+    width: 60px;
+    height: 96px;
+
+    .status {
+      height: 24px;
+    }
+    .icon-container {
+      margin-top: 4px;
+      height: var(--icon-height);
+      .icon {
+        width: var(--icon-width);
+        height: var(--icon-height);
+        margin: 0 auto;
+      }
+    }
+    .buffs {
+      margin-top: 4px;
+      height: 32px;
+    }
+  }
+}
+
+/*
+ * AdventureScene
+ */
 #js-app-container .adventure-scene {
   .mini-dungeon-cards {
     display: flex;
-
-    .mini-card {
-      width: 60px;
-      height: 90px;
-
-      .status {
-        height: 24px;
-      }
-      .icon-container {
-        margin-top: 4px;
-        height: var(--icon-height);
-        .icon {
-          width: var(--icon-width);
-          height: var(--icon-height);
-          margin: 0 auto;
-        }
-      }
-      .buffs {
-        margin-top: 4px;
-        height: 24px;
-      }
+  }
+  .card-container {
+    margin-top: 20px;
+    height: var(--card-height);
+    .card {
+      margin: 0 auto;
     }
   }
 }
