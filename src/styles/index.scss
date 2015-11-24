@@ -66,8 +66,11 @@ body.development {
   }
 
   .mini-card {
-    width: 60px;
-    height: 96px;
+    box-sizing: border-box;
+    width: var(--mini-card-width);
+    height: var(--mini-card-height);
+    border: 2px solid var(--color-font);
+    border-radius: 4px;
 
     .status {
       height: 24px;
@@ -93,7 +96,9 @@ body.development {
  */
 #js-app-container .adventure-scene {
   .mini-dungeon-cards {
+    margin: 8px;
     display: flex;
+    justify-content: space-between;
   }
   .card-container {
     margin-top: 20px;

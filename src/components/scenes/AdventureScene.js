@@ -33,7 +33,7 @@ export default class AdventureScene extends React.Component {
     ];
 
     return dungeonCardList
-      .slice(0, 6)
+      .slice(0, 5)
       .map((dungeonCard, idx) => {
         return React.createElement(MiniCard, { key: 'mini-card-' + idx });
       })
