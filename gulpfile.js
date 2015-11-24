@@ -79,6 +79,10 @@ function createTransformer() {
   return babelify.configure({
     // Configure babel options here
     // Ref) http://babeljs.io/docs/usage/options/
+    presets: [
+      'es2015',
+      'react',
+    ]
   });
 }
 
