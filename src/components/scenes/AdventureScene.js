@@ -44,7 +44,7 @@ export default class AdventureScene extends React.Component {
     return _floors
       .slice().reverse()
       .map((floor, idx) => {
-        return React.createElement(Bar, { key: 'floor-bar-' + idx });
+        return React.createElement(Bar, { key: 'bar-' + idx });
       })
     ;
   }

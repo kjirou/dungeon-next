@@ -4,8 +4,9 @@
 :root {
   --app-height: 600px;
   --app-width: 360px;
-  --bar-height: 40px;
-  --icon-animation-margin: 4px;
+  --app-with-scroll-bar-width: 380px;
+  --bar-height: 48px;
+  --icon-animation-margin: 8px;
   --icon-height: 32px;
   --icon-width: 32px;
   --card-height: 240px;
@@ -18,6 +19,8 @@
 
 
 body.development {
+  height: 100%;
+  background-color: #cccccc;
 }
 
 
@@ -31,6 +34,9 @@ body.development {
 }
 
 
+/*
+ * Screen
+ */
 #js-app-container {
   margin: 10px auto;
 
@@ -50,21 +56,20 @@ body.development {
       left: 0;
       width: 100%;
       height: 100%;
+      overflow: scroll;
+      overflow-x: hidden;
     }
   }
 }
 
+
 /*
- * Icon
+ * Icon, AnimatedIcon
  */
 #js-app-container .icon {
   width: var(--icon-width);
   height: var(--icon-height);
 }
-
-/*
- * AnimatedIcon
- */
 #js-app-container .animated-icon {
   position: relative;
   width: var(--bar-height);
@@ -79,6 +84,7 @@ body.development {
   }
 }
 
+
 /*
  * Bar
  */
@@ -86,7 +92,17 @@ body.development {
   position: relative;
   width: var(--app-width);
   height: var(--bar-height);
+  .headline {
+    height: 100%;
+    position: relative;
+  }
+  .details {
+    display: none;
+    &.is-showing {
+      display: block;
+    }
+  }
 }
 
 
-@import './scenes.css';
+@import './scenes.scss';

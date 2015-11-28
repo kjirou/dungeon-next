@@ -1,0 +1,38 @@
+#js-app-container {
+
+  .adventure-scene {
+
+    .floors {
+      overflow: scroll;
+      overflow-x: hidden;
+      width: var(--app-with-scroll-bar-width);
+      height: 300px;
+      .bar {
+        border-top: 1px solid var(--color-font);
+        cursor: pointer;
+      }
+    }
+
+    .adventure-status {
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      color: var(--color-background);
+      background-color: var(--color-font);
+    }
+
+    .adventurer-status {
+      height: 240px;
+    }
+
+    .next-button {
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      text-align: center;
+      color: var(--color-background);
+      background-color: var(--color-font);
+      cursor: pointer;
+    }
+  }
+}
