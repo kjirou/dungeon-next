@@ -1,9 +1,9 @@
 {
-  "name": "hakusura",
+  "name": "dungeon-next",
   "version": "0.0.0",
   "author": "kjirou",
   "bugs": {
-    "url": "https://github.com/kjirou/hakusura/issues"
+    "url": "https://github.com/kjirou/dungeon-next/issues"
   },
   "dependencies": {
     "lodash": "3.10.1",
@@ -45,7 +45,7 @@
     "node": ">=4.2",
     "npm": ">=2.14"
   },
-  "homepage": "https://github.com/kjirou/hakusura#readme",
+  "homepage": "https://github.com/kjirou/dungeon-next#readme",
   "keywords": [
     "game",
     "hack-and-slash",
@@ -56,7 +56,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kjirou/hakusura.git"
+    "url": "git+https://github.com/kjirou/dungeon-next.git"
   },
   "scripts": {
     "b": "npm run build",
