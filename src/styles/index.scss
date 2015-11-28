@@ -2,16 +2,18 @@
 
 
 :root {
-  --app-width: 360px;
   --app-height: 600px;
-  --icon-width: 32px;
+  --app-width: 360px;
+  --bar-height: 40px;
+  --icon-animation-margin: 4px;
   --icon-height: 32px;
-  --card-width: 150px;
+  --icon-width: 32px;
   --card-height: 240px;
-  --mini-card-width: 60px;
-  --mini-card-height: 96px;
-  --color-font: #ffffff;
+  --card-width: 150px;
   --color-background: #000000;
+  --color-font: #ffffff;
+  --mini-card-height: 96px;
+  --mini-card-width: 60px;
 }
 
 
@@ -20,7 +22,7 @@ body.development {
 
 
 /*
- * Reset styles
+ * Reset
  */
 #js-app-container {
   ul, ol {
@@ -53,58 +55,38 @@ body.development {
 }
 
 /*
- * Card, MiniCard
+ * Icon
  */
-#js-app-container {
+#js-app-container .icon {
+  width: var(--icon-width);
+  height: var(--icon-height);
+}
 
-  .card {
-    box-sizing: border-box;
-    width: var(--card-width);
-    height: var(--card-height);
-    border: 2px solid var(--color-font);
-    border-radius: 6px;
-  }
-
-  .mini-card {
-    box-sizing: border-box;
-    width: var(--mini-card-width);
-    height: var(--mini-card-height);
-    border: 2px solid var(--color-font);
-    border-radius: 4px;
-
-    .status {
-      height: 24px;
-    }
-    .icon-container {
-      margin-top: 4px;
-      height: var(--icon-height);
-      .icon {
-        width: var(--icon-width);
-        height: var(--icon-height);
-        margin: 0 auto;
-      }
-    }
-    .buffs {
-      margin-top: 4px;
-      height: 32px;
-    }
+/*
+ * AnimatedIcon
+ */
+#js-app-container .animated-icon {
+  position: relative;
+  width: var(--bar-height);
+  height: var(--bar-height);
+  .icon-container {
+    position: absolute;
+    top: var(--icon-animation-margin);
+    left: var(--icon-animation-margin);
+    /* TODO: 子ブロック要素のサイズに従いたい */
+    width: var(--icon-width);
+    height: var(--icon-height);
   }
 }
 
 /*
- * AdventureScene
+ * Bar
  */
-#js-app-container .adventure-scene {
-  .mini-dungeon-cards {
-    margin: 8px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .card-container {
-    margin-top: 20px;
-    height: var(--card-height);
-    .card {
-      margin: 0 auto;
-    }
-  }
+#js-app-container .bar {
+  position: relative;
+  width: var(--app-width);
+  height: var(--bar-height);
 }
+
+
+@import './scenes.css';

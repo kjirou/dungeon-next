@@ -6,7 +6,8 @@ export default class Card extends React.Component {
   render() {
 
     return (
-      <div className="card">
+      <div className="animated-icon">
+        <div className="icon goblin-icon" />
       </div>
     );
   }

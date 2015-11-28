@@ -1,57 +1,71 @@
 import React from 'react';
 
-import Card from '../Card';
-import MiniCard from '../MiniCard';
+import Bar from '../Bar';
 import sharedProps from './sharedProps';
+
+
+const _floors = [
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+  {
+    typeId: 'enemy',
+  },
+];
 
 
 export default class AdventureScene extends React.Component {
 
-  _createDungeonCardElements() {
-    const dungeonCardList = [
-      {
-        typeId: 'enemy',
-      },
-      {
-        typeId: 'enemy',
-      },
-      {
-        typeId: 'enemy',
-      },
-      {
-        typeId: 'enemy',
-      },
-      {
-        typeId: 'enemy',
-      },
-      {
-        typeId: 'enemy',
-      },
-      {
-        typeId: 'enemy',
-      },
-    ];
-
-    return dungeonCardList
-      .slice(0, 5)
-      .map((dungeonCard, idx) => {
-        return React.createElement(MiniCard, { key: 'mini-card-' + idx });
+  _createFloorBarElements() {
+    return _floors
+      .slice().reverse()
+      .map((floor, idx) => {
+        return React.createElement(Bar, { key: 'floor-bar-' + idx });
       })
     ;
   }
 
   render() {
-    const dungeonCardElements = this._createDungeonCardElements();
-    const cardElement = React.createElement(Card);
+    const floorBarElements = this._createFloorBarElements();
+
+    const adventurerBarElement = <Bar />;
 
     return (
       <div className="scene adventure-scene">
-        <div className="mini-dungeon-cards">
-          { dungeonCardElements }
+        <div className="floors">
+          { floorBarElements }
         </div>
-        <div className="card-container">
-          { cardElement }
+        <div className="adventure-status">
+          Lv.4 ゴブリンの洞窟 - 1/50F
         </div>
+        <div className="adventurer-status">
+          { adventurerBarElement }
+        </div>
+        <div className="next-button">Next</div>
       </div>
     );
   }
