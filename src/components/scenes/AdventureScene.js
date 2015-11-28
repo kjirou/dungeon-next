@@ -1,41 +1,23 @@
+import lodash from 'lodash';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Bar from '../Bar';
 import sharedProps from './sharedProps';
 
 
-const _floors = [
-  {
+//
+// TODO: floorの詳細を開いた時に下が隠れる場合、その分を上にずらす
+//       下の3つくらいまでに必要な処理なので、動的に計算しないとダメみたい
+//
+
+
+const _floors = lodash.range(100).map((notUse, idx) => {
+  return {
     typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-  {
-    typeId: 'enemy',
-  },
-];
+  };
+})
+;
 
 
 export default class AdventureScene extends React.Component {
@@ -47,6 +29,11 @@ export default class AdventureScene extends React.Component {
         return React.createElement(Bar, { key: 'bar-' + idx });
       })
     ;
+  }
+
+  componentDidMount() {
+    const floorsDom = ReactDOM.findDOMNode(this).querySelector('.floors');
+    floorsDom.scrollTop = floorsDom.scrollHeight;
   }
 
   render() {

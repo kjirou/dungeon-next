@@ -91,12 +91,11 @@ body.development {
 #js-app-container .bar {
   position: relative;
   width: var(--app-width);
-  height: var(--bar-height);
   .headline {
-    height: 100%;
+    height: var(--bar-height);
     position: relative;
   }
-  .details {
+  .detail {
     display: none;
     &.is-showing {
       display: block;
