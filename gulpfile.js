@@ -1,3 +1,5 @@
+require('./environments/client');
+
 var autoprefixer = require('autoprefixer');
 var babelify = require('babelify');
 var browserify = require('browserify');

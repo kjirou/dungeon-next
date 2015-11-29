@@ -2,14 +2,10 @@ import lodash from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import EventHandlerCarrier from 'lib/EventHandlerCarrier';
+import { preventEvents, scrollUpToUnderline } from 'lib/utils';
 import Bar from '../Bar';
 import sharedProps from './sharedProps';
-
-
-//
-// TODO: floorの詳細を開いた時に下が隠れる場合、その分を上にずらす
-//       下の3つくらいまでに必要な処理なので、動的に計算しないとダメみたい
-//
 
 
 const _floors = lodash.range(100).map((notUse, idx) => {
@@ -23,10 +19,26 @@ const _floors = lodash.range(100).map((notUse, idx) => {
 export default class AdventureScene extends React.Component {
 
   _createFloorBarElements() {
+
+    const onMouseDown = (event, { emitter }) => {
+      preventEvents(event);
+      emitter.toggleDetail();
+
+      const dom = ReactDOM.findDOMNode(this);
+      const floorsDom = dom.querySelector('.floors');
+      const barDom = ReactDOM.findDOMNode(emitter);
+      setTimeout(() => {
+        scrollUpToUnderline(floorsDom, barDom);
+      }, 0);
+    };
+
     return _floors
       .slice().reverse()
       .map((floor, idx) => {
-        return React.createElement(Bar, { key: 'bar-' + idx });
+        return React.createElement(Bar, {
+          key: 'bar-' + idx,
+          onMouseDownCarrier: new EventHandlerCarrier(onMouseDown),
+        });
       })
     ;
   }

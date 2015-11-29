@@ -1,5 +1,6 @@
 import React from 'react';
 
+import EventHandlerCarrier from 'lib/EventHandlerCarrier';
 import AnimatedIcon from './AnimatedIcon';
 
 
@@ -17,7 +18,7 @@ export default class Bar extends React.Component {
     });
   }
 
-  _toggleDetail() {
+  toggleDetail() {
     this._isDetailShowing = !this._isDetailShowing;
     this._syncState();
   }
@@ -33,7 +34,7 @@ export default class Bar extends React.Component {
     return (
       <div
         className="bar"
-        onMouseDown={ () => this._toggleDetail() }
+        onMouseDown={ this.props.onMouseDownCarrier.bindContexts(this, event) }
       >
         <div className="headline">
           <AnimatedIcon />
@@ -47,3 +48,12 @@ export default class Bar extends React.Component {
     );
   }
 }
+
+Object.assign(Bar, {
+  defaultProps: {
+    onMouseDownCarrier: new EventHandlerCarrier(),
+  },
+  propTypes: {
+    onMouseDownCarrier: React.PropTypes.instanceOf(EventHandlerCarrier),
+  },
+});
