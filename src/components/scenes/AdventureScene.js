@@ -24,6 +24,7 @@ export default class AdventureScene extends React.Component {
       preventEvents(event);
       emitter.toggleDetail();
 
+      // TODO: Should not refer HTMLElement props that they are changed by the current rendering.
       const dom = ReactDOM.findDOMNode(this);
       const floorsDom = dom.querySelector('.floors');
       const barDom = ReactDOM.findDOMNode(emitter);
