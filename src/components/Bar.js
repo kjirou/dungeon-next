@@ -30,6 +30,10 @@ export default class Bar extends React.Component {
   }
 
   render() {
+    let floorNumberElement = null;
+    if (this.props.floorNumber !== null) {
+      floorNumberElement = <div key="floor-number" className="floor-number" >{ this.props.floorNumber }</div>;
+    }
 
     return (
       <div
@@ -37,6 +41,7 @@ export default class Bar extends React.Component {
         onMouseDown={ this.props.onMouseDownCarrier.bindContexts(this, event) }
       >
         <div className="headline">
+          { floorNumberElement }
           <AnimatedIcon />
         </div>
         <div className={ this._generateDetailClassName() }>
@@ -51,9 +56,11 @@ export default class Bar extends React.Component {
 
 Object.assign(Bar, {
   defaultProps: {
+    floorNumber: null,
     onMouseDownCarrier: new EventHandlerCarrier(),
   },
   propTypes: {
+    floorNumber: React.PropTypes.number,
     onMouseDownCarrier: React.PropTypes.instanceOf(EventHandlerCarrier),
   },
 });

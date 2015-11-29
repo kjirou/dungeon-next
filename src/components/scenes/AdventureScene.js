@@ -11,6 +11,7 @@ import sharedProps from './sharedProps';
 const _floors = lodash.range(100).map((notUse, idx) => {
   return {
     typeId: 'enemy',
+    floorNumber: idx + 1,
   };
 })
 ;
@@ -35,9 +36,10 @@ export default class AdventureScene extends React.Component {
 
     return _floors
       .slice().reverse()
-      .map((floor, idx) => {
+      .map((floor) => {
         return React.createElement(Bar, {
-          key: 'bar-' + idx,
+          key: 'bar-' + floor.floorNumber,
+          floorNumber: floor.floorNumber,
           onMouseDownCarrier: new EventHandlerCarrier(onMouseDown),
         });
       })
