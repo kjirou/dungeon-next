@@ -41,8 +41,26 @@ export default class Bar extends React.Component {
         onMouseDown={ this.props.onMouseDownCarrier.bindContexts(this, event) }
       >
         <div className="headline">
-          { floorNumberElement }
-          <AnimatedIcon />
+          <div className="headline-column-left headline-column">
+            { floorNumberElement }
+            <AnimatedIcon />
+          </div>
+          <div className="headline-column-center headline-column">
+            <div className="nameplate">
+              <span className="floor-type-name">敵</span>
+              <span className="separator">:</span>
+              <span className="floor-title">ゴブリン</span>
+            </div>
+            <div className="buffs">
+              <span className="positive-buff buff">士気3</span>
+              <span className="positive-buff buff">加速4</span>
+              <span className="negative-buff buff">毒2</span>
+              <span className="neutral-buff buff">軟化1</span>
+            </div>
+          </div>
+          <div className="headline-column-right headline-column">
+            <AnimatedIcon />
+          </div>
         </div>
         <div className={ this._generateDetailClassName() }>
           <div>Detail</div>

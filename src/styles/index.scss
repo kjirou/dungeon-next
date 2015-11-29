@@ -12,7 +12,10 @@
   --card-height: 240px;
   --card-width: 150px;
   --color-background: #000000;
-  --color-font: #ffffff;
+  --color-negative: red;
+  --color-neutral: #ffffff;
+  --color-positive: lime;
+  --color-text: #ffffff;
   --z-index-default: 1;
 }
 
@@ -46,7 +49,7 @@ body.development {
     left: 0;
     width: var(--app-width);
     height: var(--app-height);
-    color: var(--color-font);
+    color: var(--color-text);
     background-color: var(--color-background);
 
     .scene {
@@ -88,11 +91,60 @@ body.development {
  * Bar
  */
 #js-app-container .bar {
-  position: relative;
   width: var(--app-width);
   .headline {
     height: var(--bar-height);
     position: relative;
+    .headline-column {
+      position: absolute;
+      height: 100%;
+      &.headline-column-left {
+        width: var(--bar-height);
+      }
+      &.headline-column-center {
+        left: var(--bar-height);
+        width: 264px;
+        >div {
+          width: 100%;
+          height: 24px;
+          line-height: 24px;
+        }
+        .nameplate {
+          font-size: 12px;
+          >span {
+            display: inline-block;
+          }
+          .floor-type-name {
+            width: 16px;
+            text-align: center;
+          }
+          .separator {
+            width: 8px;
+            text-align: center;
+          }
+        }
+        .buffs {
+          overflow: hidden;
+          font-size: 10px;
+          .buff {
+            margin-right: 4px;
+            &.positive-buff {
+              color: var(--color-positive);
+            }
+            &.negative-buff {
+              color: var(--color-negative);
+            }
+            &.neutral-buff {
+              color: var(--color-neutral);
+            }
+          }
+        }
+      }
+      &.headline-column-right {
+        right: 0;
+        width: var(--bar-height);
+      }
+    }
     .floor-number {
       position: absolute;
       top: 2px;
