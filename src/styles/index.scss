@@ -66,6 +66,33 @@ body.development {
 
 
 /*
+ * Gauge
+ */
+#js-app-container .gauge {
+  position: absolute;
+  box-sizing: border-box;
+  .gauge-bar {
+    position: absolute;
+    height: 100%;
+  }
+  &.hp-gauge {
+    width: var(--icon-height);
+    height: 6px;
+    border: 1px solid var(--color-text);
+    border-radius: 2px;
+    background-color: var(--color-background);
+    .gauge-bar {
+      top: 1px;
+      left: 1px;
+      width: 28px;
+      height: 2px;
+      background-color: var(--color-text);
+    }
+  }
+}
+
+
+/*
  * Icon, AnimatedIcon
  */
 #js-app-container .icon {
@@ -99,6 +126,11 @@ body.development {
       height: 100%;
       &.headline-column-left {
         width: var(--bar-height);
+        .hp-gauge {
+          left: var(--icon-animation-margin);
+          bottom: 1px;
+          z-index: var(--z-index-default);
+        }
       }
       &.headline-column-center {
         left: var(--bar-height);

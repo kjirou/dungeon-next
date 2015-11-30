@@ -2,6 +2,7 @@ import React from 'react';
 
 import EventHandlerCarrier from 'lib/EventHandlerCarrier';
 import AnimatedIcon from './AnimatedIcon';
+import Gauge from './Gauge';
 
 
 export default class Bar extends React.Component {
@@ -29,11 +30,22 @@ export default class Bar extends React.Component {
     return classNames.join(' ');
   }
 
+  _createHpGaugeElement() {
+    if (this.props.hpRate === null || this.props.hpRate >= 1.0) {
+      return null;
+    }
+    return React.createElement(Gauge, {
+      classNames: ['hp-gauge'],
+      rate: this.props.hpRate,
+    });
+  }
+
   render() {
     let floorNumberElement = null;
     if (this.props.floorNumber !== null) {
       floorNumberElement = <div key="floor-number" className="floor-number" >{ this.props.floorNumber }</div>;
     }
+    const hpGaugeElement = this._createHpGaugeElement();
 
     return (
       <div
@@ -43,6 +55,7 @@ export default class Bar extends React.Component {
         <div className="headline">
           <div className="headline-column-left headline-column">
             { floorNumberElement }
+            { hpGaugeElement }
             <AnimatedIcon />
           </div>
           <div className="headline-column-center headline-column">
@@ -75,10 +88,12 @@ export default class Bar extends React.Component {
 Object.assign(Bar, {
   defaultProps: {
     floorNumber: null,
+    hpRate: null,
     onMouseDownCarrier: new EventHandlerCarrier(),
   },
   propTypes: {
     floorNumber: React.PropTypes.number,
+    hpRate: React.PropTypes.number,
     onMouseDownCarrier: React.PropTypes.instanceOf(EventHandlerCarrier),
   },
 });

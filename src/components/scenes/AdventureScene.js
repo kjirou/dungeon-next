@@ -12,6 +12,7 @@ const _floors = lodash.range(100).map((notUse, idx) => {
   return {
     typeId: 'enemy',
     floorNumber: idx + 1,
+    hpRate: 0.8,
   };
 })
 ;
@@ -40,6 +41,7 @@ export default class AdventureScene extends React.Component {
         return React.createElement(Bar, {
           key: 'bar-' + floor.floorNumber,
           floorNumber: floor.floorNumber,
+          hpRate: floor.hpRate,
           onMouseDownCarrier: new EventHandlerCarrier(onMouseDown),
         });
       })
