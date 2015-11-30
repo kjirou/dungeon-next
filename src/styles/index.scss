@@ -80,7 +80,6 @@ body.development {
     position: absolute;
     top: var(--icon-animation-margin);
     left: var(--icon-animation-margin);
-    /* TODO: 子ブロック要素のサイズに従いたい */
     width: var(--icon-width);
     height: var(--icon-height);
   }
