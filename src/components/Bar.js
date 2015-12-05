@@ -56,7 +56,7 @@ export default class Bar extends React.Component {
           <div className="headline-column-left headline-column">
             { floorNumberElement }
             { hpGaugeElement }
-            <AnimatedIcon />
+            <AnimatedIcon iconId={ this.props.iconId } />
           </div>
           <div className="headline-column-center headline-column">
             <div className="nameplate">
@@ -72,7 +72,7 @@ export default class Bar extends React.Component {
             </div>
           </div>
           <div className="headline-column-right headline-column">
-            <AnimatedIcon />
+            <AnimatedIcon iconId="sword" />
           </div>
         </div>
         <div className={ this._generateDetailClassName() }>
@@ -94,6 +94,7 @@ Object.assign(Bar, {
   propTypes: {
     floorNumber: React.PropTypes.number,
     hpRate: React.PropTypes.number,
+    iconId: React.PropTypes.string.isRequired,
     onMouseDownCarrier: React.PropTypes.instanceOf(EventHandlerCarrier),
   },
 });

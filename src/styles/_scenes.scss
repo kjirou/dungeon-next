@@ -22,17 +22,38 @@
     }
 
     .adventurer-status {
-      height: 232px;
+      height: 208px;
     }
 
-    .next-button {
-      height: 48px;
-      line-height: 48px;
-      font-size: 21px;
-      text-align: center;
-      color: var(--color-background);
-      background-color: var(--color-text);
-      cursor: pointer;
+    .buttons {
+      position: relative;
+      height: 72px;
+      .button {
+        position: absolute;
+        box-sizing: border-box;
+        top: 12px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        border: 2px solid  var(--color-text);
+        border-radius: 4px;
+        cursor: pointer;
+        &.next-button {
+          left: 72px;
+          width: 216px;
+          font-size: 21px;
+        }
+        &.config-button {
+          right: 12px;
+          width: 48px;
+          .icon {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
     }
   }
 }

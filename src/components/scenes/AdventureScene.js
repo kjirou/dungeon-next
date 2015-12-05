@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import EventHandlerCarrier from 'lib/EventHandlerCarrier';
 import { preventEvents, scrollUpToUnderline } from 'lib/utils';
 import Bar from '../Bar';
+import Icon from '../Icon';
 import sharedProps from './sharedProps';
 
 
@@ -13,6 +14,7 @@ const _floors = lodash.range(100).map((notUse, idx) => {
     typeId: 'enemy',
     floorNumber: idx + 1,
     hpRate: 0.8,
+    iconId: 'goblin',
   };
 })
 ;
@@ -42,6 +44,7 @@ export default class AdventureScene extends React.Component {
           key: 'bar-' + floor.floorNumber,
           floorNumber: floor.floorNumber,
           hpRate: floor.hpRate,
+          iconId: floor.iconId,
           onMouseDownCarrier: new EventHandlerCarrier(onMouseDown),
         });
       })
@@ -56,7 +59,7 @@ export default class AdventureScene extends React.Component {
   render() {
     const floorBarElements = this._createFloorBarElements();
 
-    const adventurerBarElement = <Bar />;
+    const adventurerBarElement = <Bar iconId="fighter" />;
 
     return (
       <div className="scene adventure-scene">
@@ -69,7 +72,12 @@ export default class AdventureScene extends React.Component {
         <div className="adventurer-status">
           { adventurerBarElement }
         </div>
-        <div className="next-button">Next</div>
+        <div className="buttons">
+          <div className="button next-button">Next</div>
+          <div className="button config-button">
+            <Icon iconId="frog" />
+          </div>
+        </div>
       </div>
     );
   }
