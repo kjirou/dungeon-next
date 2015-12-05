@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import EventHandlerCarrier from 'lib/EventHandlerCarrier';
 import { preventEvents, scrollUpToUnderline } from 'lib/utils';
-import Bar from '../Bar';
+import ObjectBar from '../ObjectBar';
 import Icon from '../Icon';
 import sharedProps from './sharedProps';
 
@@ -40,8 +40,8 @@ export default class AdventureScene extends React.Component {
     return _floors
       .slice().reverse()
       .map((floor) => {
-        return React.createElement(Bar, {
-          key: 'bar-' + floor.floorNumber,
+        return React.createElement(ObjectBar, {
+          key: 'object-bar-' + floor.floorNumber,
           floorNumber: floor.floorNumber,
           hpRate: floor.hpRate,
           iconId: floor.iconId,
@@ -59,7 +59,7 @@ export default class AdventureScene extends React.Component {
   render() {
     const floorBarElements = this._createFloorBarElements();
 
-    const adventurerBarElement = <Bar iconId="fighter" />;
+    const adventurerBarElement = <ObjectBar iconId="fighter" />;
 
     return (
       <div className="scene adventure-scene">
