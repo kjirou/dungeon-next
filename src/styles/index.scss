@@ -5,7 +5,7 @@
   --app-height: 600px;
   --app-width: 360px;
   --app-with-scroll-bar-width: 380px;
-  --bar-height: 48px;
+  --object-bar-height: 48px;
   --icon-animation-margin: 8px;
   --icon-height: 32px;
   --icon-width: 32px;
@@ -101,8 +101,8 @@ body.development {
 }
 #js-app-container .animated-icon {
   position: relative;
-  width: var(--bar-height);
-  height: var(--bar-height);
+  width: var(--object-bar-height);
+  height: var(--object-bar-height);
   .icon-container {
     position: absolute;
     top: var(--icon-animation-margin);
@@ -114,18 +114,18 @@ body.development {
 
 
 /*
- * Bar
+ * ObjectBar
  */
-#js-app-container .bar {
+#js-app-container .object-bar {
   width: var(--app-width);
   .headline {
-    height: var(--bar-height);
+    height: var(--object-bar-height);
     position: relative;
     .headline-column {
       position: absolute;
       height: 100%;
       &.headline-column-left {
-        width: var(--bar-height);
+        width: var(--object-bar-height);
         .hp-gauge {
           left: var(--icon-animation-margin);
           bottom: 1px;
@@ -133,7 +133,7 @@ body.development {
         }
       }
       &.headline-column-center {
-        left: var(--bar-height);
+        left: var(--object-bar-height);
         width: 264px;
         >div {
           width: 100%;
@@ -173,7 +173,30 @@ body.development {
       }
       &.headline-column-right {
         right: 0;
-        width: var(--bar-height);
+        width: var(--object-bar-height);
+        .hit,
+        .damage {
+          position: absolute;
+          width: 100%;
+          height: 12px;
+          line-height: 12px;
+          font-size: 10px;
+          text-shadow:
+            -1px 0 var(--color-background),
+            0 1px var(--color-background),
+            1px 0 var(--color-background),
+            0 -1px var(--color-background);
+        }
+        .hit {
+          top: 4px;
+          left: 4px;
+          text-align: left;
+        }
+        .damage {
+          right: 4px;
+          bottom: 4px;
+          text-align: right;
+        }
       }
     }
     .floor-number {

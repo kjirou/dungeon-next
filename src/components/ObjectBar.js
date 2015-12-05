@@ -49,7 +49,7 @@ export default class Bar extends React.Component {
 
     return (
       <div
-        className="bar"
+        className="object-bar"
         onMouseDown={ this.props.onMouseDownCarrier.bindContexts(this, event) }
       >
         <div className="headline">
@@ -73,6 +73,8 @@ export default class Bar extends React.Component {
           </div>
           <div className="headline-column-right headline-column">
             <AnimatedIcon iconId="sword" />
+            <div className="hit">95%</div>
+            <div className="damage">100%</div>
           </div>
         </div>
         <div className={ this._generateDetailClassName() }>
