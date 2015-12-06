@@ -73,8 +73,8 @@ export default class Bar extends React.Component {
           </div>
           <div className="headline-column-right headline-column">
             <AnimatedIcon iconId="sword" />
-            <div className="hit">95%</div>
-            <div className="damage">100%</div>
+            <div className="hit">95%x2</div>
+            <div className="damage">!微傷+</div>
           </div>
         </div>
         <div className={ this._generateDetailClassName() }>

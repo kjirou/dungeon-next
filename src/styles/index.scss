@@ -177,7 +177,7 @@ body.development {
         .hit,
         .damage {
           position: absolute;
-          width: 100%;
+          width: 46px;
           height: 12px;
           line-height: 12px;
           font-size: 10px;
@@ -188,13 +188,13 @@ body.development {
             0 -1px var(--color-background);
         }
         .hit {
-          top: 4px;
-          left: 4px;
+          top: 2px;
+          left: 2px;
           text-align: left;
         }
         .damage {
-          right: 4px;
-          bottom: 4px;
+          right: 2px;
+          bottom: 2px;
           text-align: right;
         }
       }
