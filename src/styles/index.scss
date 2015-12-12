@@ -211,8 +211,28 @@ body.development {
   }
   .detail {
     display: none;
+    font-size: 10px;
     &.is-showing {
-      display: block;
+      display: flex;
+    }
+    .detail-column-left {
+      width: var(--object-bar-height);
+      table {
+        width: 100%;
+        th, td {
+          width: 50%;
+          height: 16px;
+          line-height: 16px;
+          text-align: center;
+          font-weight: normal;
+        }
+      }
+    }
+    .detail-column-center {
+      width: calc(var(--app-width) - var(--object-bar-height) * 2);
+    }
+    .detail-column-right {
+      width: var(--object-bar-height);
     }
   }
 }

@@ -78,9 +78,32 @@ export default class Bar extends React.Component {
           </div>
         </div>
         <div className={ this._generateDetailClassName() }>
-          <div>Detail</div>
-          <div>Detail</div>
-          <div>Detail</div>
+          <div className="detail-column-left">
+            <table>
+              <tbody>
+                <tr>
+                  <th>HP</th>
+                  <td>999</td>
+                </tr>
+                <tr>
+                  <th>STR</th>
+                  <td>99</td>
+                </tr>
+                <tr>
+                  <th>AGI</th>
+                  <td>99</td>
+                </tr>
+                <tr>
+                  <th>INT</th>
+                  <td>99</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="detail-column-center">
+          </div>
+          <div className="detail-column-right">
+          </div>
         </div>
       </div>
     );
